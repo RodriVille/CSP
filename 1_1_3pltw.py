@@ -2,10 +2,12 @@ import turtle as trtl
 
 painter = trtl.Turtle()
 
-loopOne = range(0, 19)
-for i in loopOne:
+i = 0
+while (i < 19):
     painter.forward(20)
     painter.right(20)
+    i = i + 1
+
 
 
 wn = trtl.Screen()
