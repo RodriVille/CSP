@@ -17,14 +17,13 @@ xcord = 0
 ycord = 50
 #-----functions-----
 # given a turtle, set that turtle to be shaped by the image file
-def draw_apple(active_apple):
+def draw_apple(active_apple): #Step 1
   xcord = rand.randint(-100, 100)
   active_apple.goto(xcord, 50)
   active_apple.showturtle()
   active_apple.shape(apple_image)
-  wn.update()
 
-def applFall(active_apple):
+def applFall(active_apple): #Step 6
   xcor = active_apple.xcor()
   ycor = active_apple.ycor()
   active_apple.penup()
@@ -33,22 +32,22 @@ def applFall(active_apple):
   active_apple.hideturtle()
   draw_apple(active_apple)
 
-def new_letter(Appl):
+def new_letter(Appl): #Step 2
   letter = rand.choice(letter_list)
   #print str(letter)
   userI(Appl, letter)
 
-def userI (active_apple, letter):
+def userI (active_apple, letter): #Step 3
   msg = str(letter)
   active_apple.color("blue")
   active_apple.write(msg, font=("Arial", 20, "bold"))
   keypress(active_apple, letter)
   
-def dropAppl():
+def dropAppl(): #Step 5
   applFall(apple)
   new_letter(apple)
 
-def keypress (apple, letter):
+def keypress (apple, letter): #Step 4
   given_letter = letter 
   wn.onkeypress(dropAppl, given_letter)
 #-----function calls-----
