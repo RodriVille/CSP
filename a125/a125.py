@@ -8,8 +8,8 @@ wn.setup(width=.5, height=.5)
 wn.bgpic("board.png")# Make the background of the scene
 print("hello")
 
-xcord = -50
-ycord = 50
+xcord = -120
+ycord = 75
 
 spaceTL = trtl.Turtle()
 spaceTM = trtl.Turtle()
@@ -33,15 +33,20 @@ stateBR = 0
 
 spaceList = [spaceTL, spaceTM, spaceTR, spaceML, spaceMM, spaceMR, spaceBL, spaceBM, spaceBR]
 
+i=0
 for spaces in spaceList:
+    spaces.ht()
+    spaces.penup()
     spaces.goto(xcord, ycord)
-    spaces.circle(20)
-    xcord += 50
-    i = 0
-    if (i == 3):
-        ycord -= 50
+    spaces.pendown()
+    spaces.circle(40)
+    xcord += 120
+    if (i == 2):
+        ycord -= 115
         i = 0
-        xcord = -50
+        xcord = -120
+    else:
+        i += 1
 
 wn.listen()
 # wn.exitonclick()
