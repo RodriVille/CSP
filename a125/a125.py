@@ -33,11 +33,11 @@ stateBR = 0
 
 spaceList = [spaceTL, spaceTM, spaceTR, spaceML, spaceMM, spaceMR, spaceBL, spaceBM, spaceBR]
 
+i = 0
 for spaces in spaceList:
     spaces.goto(xcord, ycord)
     spaces.circle(20)
     xcord += 50
-    i = 0
     if (i == 3):
         ycord -= 50
         i = 0
