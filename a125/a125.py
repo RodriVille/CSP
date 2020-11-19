@@ -1,11 +1,7 @@
 import turtle as trtl
 import random as rand
 import time
-import os
 
-
-#dir = os.path.dirname(os.path.abspath(__file__))
-#board = os.path.join(dir, "C:\Users\ethan\OneDrive\Desktop\Rod\CSP\a125\board.png")
 #-----setup-----
 wn = trtl.Screen()
 wn.setup(width=.5, height=.5)
@@ -24,6 +20,16 @@ spaceMR = trtl.Turtle()
 spaceBL = trtl.Turtle()
 spaceBM = trtl.Turtle()
 spaceBR = trtl.Turtle()
+
+stateTL = 0
+stateTM = 0
+stateTR = 0
+stateML = 0
+stateMM = 0
+stateMR = 0
+stateBL = 0
+stateBM = 0
+stateBR = 0
 
 spaceList = [spaceTL, spaceTM, spaceTR, spaceML, spaceMM, spaceMR, spaceBL, spaceBM, spaceBR]
 
