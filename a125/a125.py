@@ -48,6 +48,26 @@ for spaces in spaceList:
     else:
         i += 1
 
+#have to call this after every state change
+def check_win():
+    if(stateTL == stateTM && stateTM == stateTR)
+      print(stateTL + " wins!")
+    if(stateML == stateMM && stateMM == stateMR)
+      print(stateML + " wins!")
+    if(stateBL == stateBM && stateBM == stateBR)
+      print(stateBL + " wins!")
+    if(stateTL == stateML && stateML == stateBL)
+      print(stateTL + " wins!")
+    if(stateTM == stateMM && stateMM == stateBM)
+      print(stateTM + " wins!")
+    if(stateTR == stateMR && stateMR == stateBR)
+      print(stateTR + " wins!")
+    if(stateTL == stateMM && stateMM == stateBR)
+      print(stateTL + " wins!")
+    if(stateTR == stateMM && stateMM == stateBL)
+      print(stateTR + " wins!")
+#somehow we have to make this exit the program after, so maybe put click to exit
+
 wn.listen()
 # wn.exitonclick()
 wn.mainloop()
