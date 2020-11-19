@@ -1,4 +1,13 @@
-<<<<<<< HEAD
-=======
+import turtle as trtl
+import random as rand
+import time
 
->>>>>>> 95414d717d71772158e2fa159975d736d6fdea85
+#-----setup-----
+wn = trtl.Screen()
+wn.setup(width=.5, height=.5)
+wn.bgpic("board.png")# Make the background of the scene
+
+
+wn.listen()
+# wn.exitonclick()
+wn.mainloop()
