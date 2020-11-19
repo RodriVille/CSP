@@ -6,7 +6,7 @@ import time
 wn = trtl.Screen()
 wn.setup(width=.5, height=.5)
 wn.bgpic("board.png")# Make the background of the scene
-
+print("hello")
 
 wn.listen()
 # wn.exitonclick()
