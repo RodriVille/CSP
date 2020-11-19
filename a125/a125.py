@@ -42,8 +42,6 @@ for spaces in spaceList:
         ycord -= 50
         i = 0
         xcord = -50
-    i += 1
-
 
 wn.listen()
 # wn.exitonclick()
