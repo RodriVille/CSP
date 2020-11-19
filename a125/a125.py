@@ -38,7 +38,7 @@ for spaces in spaceList:
     spaces.goto(xcord, ycord)
     spaces.circle(20)
     xcord += 50
-    if (i == 3):
+    if (i == 2):
         ycord -= 50
         i = 0
         xcord = -50
