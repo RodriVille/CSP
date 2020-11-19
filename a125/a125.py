@@ -8,7 +8,15 @@ wn.setup(width=.5, height=.5)
 wn.bgpic("board.png")# Make the background of the scene
 print("hello")
 
-space = trtl.Turtle()
+spaceTL = trtl.Turtle()
+spaceTM = trtl.Turtle()
+spaceTR = trtl.Turtle()
+spaceML = trtl.Turtle()
+spaceMM = trtl.Turtle()
+spaceMR = trtl.Turtle()
+spaceBL = trtl.Turtle()
+spaceBM = trtl.Turtle()
+spaceBR = trtl.Turtle()
 
 
 wn.listen()
