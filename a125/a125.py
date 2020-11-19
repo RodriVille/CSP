@@ -4,8 +4,8 @@ import time
 import os
 
 
-dir = os.path.dirname(os.path.abspath(__file__))
-board = os.path.join(dir, "C:\Users\ethan\OneDrive\Desktop\Rod\CSP\a125\board.png")
+#dir = os.path.dirname(os.path.abspath(__file__))
+#board = os.path.join(dir, "C:\Users\ethan\OneDrive\Desktop\Rod\CSP\a125\board.png")
 #-----setup-----
 wn = trtl.Screen()
 wn.setup(width=.5, height=.5)
@@ -29,7 +29,7 @@ spaceList = [spaceTL, spaceTM, spaceTR, spaceML, spaceMM, spaceMR, spaceBL, spac
 
 for spaces in spaceList:
     spaces.goto(xcord, ycord)
-    spaces.square(20)
+    spaces.circle(20)
     xcord += 50
     i = 0
     if (i == 3):
