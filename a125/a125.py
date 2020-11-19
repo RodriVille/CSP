@@ -33,6 +33,7 @@ stateBR = 0
 
 spaceList = [spaceTL, spaceTM, spaceTR, spaceML, spaceMM, spaceMR, spaceBL, spaceBM, spaceBR]
 
+#Draws the circles inside the grid
 i = 0
 for spaces in spaceList:
     spaces.goto(xcord, ycord)
