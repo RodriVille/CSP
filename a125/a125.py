@@ -1,4 +1,5 @@
 import turtle as trtl
+import ComputerAI as AI
 
 #-----setup-----
 wn = trtl.Screen()
