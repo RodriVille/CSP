@@ -9,6 +9,17 @@ wn.setup(width=.5, height=.5)
 xcord = -120
 ycord = 75
 
+global stateTL
+global stateTM
+global stateTR
+global stateML
+global stateMM
+global stateMR
+global stateBL
+global stateBM
+global stateBR
+
+
 spaceTL = trtl.Turtle()
 spaceTM = trtl.Turtle()
 spaceTR = trtl.Turtle()
@@ -30,7 +41,7 @@ stateBL = 2
 stateBM = 2
 stateBR = 2
 
-win = 0
+win = 2
 
 #---Set each space postion---
 spaceList = [spaceTL, spaceTM, spaceTR, spaceML, spaceMM, spaceMR, spaceBL, spaceBM, spaceBR]
@@ -60,89 +71,113 @@ def check_win():
     if(stateTL == stateTM & stateTM == stateTR & stateTL == 0):
         print("Computer wins!")
         win = 1
+        return win
     elif(stateML == stateMM & stateMM == stateMR & stateML == 0):
         print("Computer wins!")
         win = 1
+        return win
     elif(stateBL == stateBM & stateBM == stateBR & stateBL == 0):
         print("Computer wins!")
         win = 1
+        return win
     elif(stateTL == stateML & stateML == stateBL & stateTL == 0):
         print("Computer wins!")
         win = 1
+        return win
     elif(stateTM == stateMM & stateMM == stateBM & stateTM == 0):
         print("Computer wins!")
         win = 1
+        return win
     elif(stateTR == stateMR & stateMR == stateBR & stateTR == 0):
         print("Computer wins!")
         win = 1
+        return win
     elif(stateTL == stateMM & stateMM == stateBR & stateTL == 0):
         print("Computer wins!")
         win = 1
+        return win
     elif(stateTR == stateMM & stateMM == stateBL & stateTR == 0):
         print("Computer wins!")
         win = 1
+        return win
     #user win conditions
     elif(stateTL == stateTM & stateTM == stateTR & stateTL == 1):
         print("User wins!")
         win = 1
+        return win
     elif(stateML == stateMM & stateMM == stateMR & stateML == 1):
         print("User wins!")
         win = 1
+        return win
     elif(stateBL == stateBM & stateBM == stateBR & stateBL == 1):
         print("User wins!")
         win = 1
+        return win
     elif(stateTL == stateML & stateML == stateBL & stateTL == 1):
         print("User wins!")
         win = 1
+        return win
     elif(stateTM == stateMM & stateMM == stateBM & stateTM == 1):
         print("User wins!")
         win = 1
+        return win
     elif(stateTR == stateMR & stateMR == stateBR & stateTR == 1):
         print("User wins!")
         win = 1
+        return win
     elif(stateTL == stateMM & stateMM == stateBR & stateTL == 1):
         print("User wins!")
         win = 1
+        return win
     elif(stateTR == stateMM & stateMM == stateBL & stateTR == 1):
         print("User wins!")
         win = 1
+        return win
 
 
-def start():
+def start(win):
     turn = rand.randint(0, 1) #two random numbers to pick who goes first
     if (turn == 0):
-        userOne()
+        while (win == 2):
+            userOne()
+            win = check_win()
+            userTwo()
+            win = check_win()
     elif(turn == 1):
-        userTwo()
+        while (win == 2):
+            userTwo()
+            win = check_win()
+            userOne()
+            win = check_win()
 
 
 def userOne():
     print("user one goes first")
     user = 0
     personChoice(spaceList)
-    spaceTL.onclick(pickTL, 0)
-    spaceTM.onclick(pickTL, 0)
-    spaceTR.onclick(pickTL, 0)
-    spaceML.onclick(pickTL, 0)
-    spaceMM.onclick(pickTL, 0)
-    spaceMR.onclick(pickTL, 0)
-    spaceBL.onclick(pickTL, 0)
-    spaceBM.onclick(pickTL, 0)
-    spaceBR.onclick(pickTL, 0)
+    spaceTL.onclick(pickTL(spaceTL, 0))
+    spaceTM.onclick(pickTM(spaceTM, 0))
+    spaceTR.onclick(pickTR(spaceTR, 0))
+    spaceML.onclick(pickML(spaceML, 0))
+    spaceMM.onclick(pickMM(spaceMM, 0))
+    spaceMR.onclick(pickMR(spaceMR, 0))
+    spaceBL.onclick(pickBL(spaceBL, 0))
+    spaceBM.onclick(pickBM(spaceBM, 0))
+    spaceBR.onclick(pickBR(spaceBR, 0))
 
 
 def userTwo():
     print("user two goes first")
     personChoice(spaceList)
-    spaceTL.onclick(pickTL, 1)
-    spaceTM.onclick(pickTL, 1)
-    spaceTR.onclick(pickTL, 1)
-    spaceML.onclick(pickTL, 1)
-    spaceMM.onclick(pickTL, 1)
-    spaceMR.onclick(pickTL, 1)
-    spaceBL.onclick(pickTL, 1)
-    spaceBM.onclick(pickTL, 1)
-    spaceBR.onclick(pickTL, 1)
+    spaceTL.onclick(pickTL(spaceTL, 1))
+    spaceTM.onclick(pickTM(spaceTM, 1))
+    spaceTR.onclick(pickTR(spaceTR, 1))
+    spaceML.onclick(pickML(spaceML, 1))
+    spaceMM.onclick(pickMM(spaceMM, 1))
+    spaceMR.onclick(pickMR(spaceMR, 1))
+    spaceBL.onclick(pickBL(spaceBL, 1))
+    spaceBM.onclick(pickBM(spaceBM, 1))
+    spaceBR.onclick(pickBR(spaceBR, 1))
 
 def personChoice(spaceList):
     print("Choose from this list: ")
@@ -150,46 +185,89 @@ def personChoice(spaceList):
 
 def pickTL(space, user):
     print("user chose TL")
-    space.write("X", font = ("Arial", 20, "bold"))
+    if (user == 0):
+        space.write("X", font = ("Arial", 20, "bold"))
+        stateTL = 0
+    elif (user == 1):
+        space.write("O", font = ("Arial", 20, "bold"))
+        stateTL = 1
 
 def pickTM(space, user):
     print("user chose TM")
-    space.write("X", font = ("Arial", 20, "bold"))
+    if (user == 0):
+        space.write("X", font = ("Arial", 20, "bold"))
+        stateTM = 0
+    elif (user == 1):
+        space.write("O", font = ("Arial", 20, "bold"))
+        stateTM = 1
 
 def pickTR(space, user):
     print("user chose TR")
-    space.write("X", font = ("Arial", 20, "bold"))
+    if (user == 0):
+        space.write("X", font = ("Arial", 20, "bold"))
+        stateTR = 0
+    elif (user == 1):
+        space.write("O", font = ("Arial", 20, "bold"))
+        stateTR = 1
 
 def pickML(space, user):
     print("user chose ML")
-    space.write("X", font = ("Arial", 20, "bold"))
+    if (user == 0):
+        space.write("X", font = ("Arial", 20, "bold"))
+        stateML = 0
+    elif (user == 1):
+        space.write("O", font = ("Arial", 20, "bold"))
+        stateML = 1
 
 def pickMM(space, user):
     print("user chose MM")
-    space.write("X", font = ("Arial", 20, "bold"))
+    if (user == 0):
+        space.write("X", font = ("Arial", 20, "bold"))
+        stateMM = 0
+    elif (user == 1):
+        space.write("O", font = ("Arial", 20, "bold"))
+        stateMM = 1
 
 def pickMR(space, user):
     print("user chose MR")
-    space.write("X", font = ("Arial", 20, "bold"))
+    if (user == 0):
+        space.write("X", font = ("Arial", 20, "bold"))
+        stateMR = 0
+    elif (user == 1):
+        space.write("O", font = ("Arial", 20, "bold"))
+        stateMR = 1
 
 def pickBL(space, user):
     print("user chose BL")
-    space.write("X", font = ("Arial", 20, "bold"))
+    if (user == 0):
+        space.write("X", font = ("Arial", 20, "bold"))
+        stateBL = 0
+    elif (user == 1):
+        space.write("O", font = ("Arial", 20, "bold"))
+        stateBL = 1
 
 def pickBM(space, user):
     print("user chose BM")
-    space.write("X", font = ("Arial", 20, "bold"))
+    if (user == 0):
+        space.write("X", font = ("Arial", 20, "bold"))
+        stateBM = 0
+    elif (user == 1):
+        space.write("O", font = ("Arial", 20, "bold"))
+        stateBM = 1
 
 def pickBR(space, user):
     print("user chose BR")
-    space.write("X", font = ("Arial", 20, "bold"))
+    if (user == 0):
+        space.write("X", font = ("Arial", 20, "bold"))
+        stateBR = 0
+    elif (user == 1):
+        space.write("O", font = ("Arial", 20, "bold"))
+        stateBR = 1
 
 
 #---function calls-----
 draw_selection_areas(xcord, ycord)
-start()
-check_win()
-
+start(win)
 
 
 wn.listen()
