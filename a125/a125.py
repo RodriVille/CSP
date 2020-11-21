@@ -41,6 +41,7 @@ stateBL = 2
 stateBM = 2
 stateBR = 2
 
+global win
 win = 2
 
 #---Set each space postion---
@@ -65,85 +66,20 @@ def draw_selection_areas(xcord, ycord):
         else:
             i += 1
 
-#have to call this after every state change
-def check_win():
-    #Computer win conditions
-    if(stateTL == stateTM & stateTM == stateTR & stateTL == 0):
-        print("Computer wins!")
-        win = 1
-        return win
-    elif(stateML == stateMM & stateMM == stateMR & stateML == 0):
-        print("Computer wins!")
-        win = 1
-        return win
-    elif(stateBL == stateBM & stateBM == stateBR & stateBL == 0):
-        print("Computer wins!")
-        win = 1
-        return win
-    elif(stateTL == stateML & stateML == stateBL & stateTL == 0):
-        print("Computer wins!")
-        win = 1
-        return win
-    elif(stateTM == stateMM & stateMM == stateBM & stateTM == 0):
-        print("Computer wins!")
-        win = 1
-        return win
-    elif(stateTR == stateMR & stateMR == stateBR & stateTR == 0):
-        print("Computer wins!")
-        win = 1
-        return win
-    elif(stateTL == stateMM & stateMM == stateBR & stateTL == 0):
-        print("Computer wins!")
-        win = 1
-        return win
-    elif(stateTR == stateMM & stateMM == stateBL & stateTR == 0):
-        print("Computer wins!")
-        win = 1
-        return win
-    #user win conditions
-    elif(stateTL == stateTM & stateTM == stateTR & stateTL == 1):
-        print("User wins!")
-        win = 1
-        return win
-    elif(stateML == stateMM & stateMM == stateMR & stateML == 1):
-        print("User wins!")
-        win = 1
-        return win
-    elif(stateBL == stateBM & stateBM == stateBR & stateBL == 1):
-        print("User wins!")
-        win = 1
-        return win
-    elif(stateTL == stateML & stateML == stateBL & stateTL == 1):
-        print("User wins!")
-        win = 1
-        return win
-    elif(stateTM == stateMM & stateMM == stateBM & stateTM == 1):
-        print("User wins!")
-        win = 1
-        return win
-    elif(stateTR == stateMR & stateMR == stateBR & stateTR == 1):
-        print("User wins!")
-        win = 1
-        return win
-    elif(stateTL == stateMM & stateMM == stateBR & stateTL == 1):
-        print("User wins!")
-        win = 1
-        return win
-    elif(stateTR == stateMM & stateMM == stateBL & stateTR == 1):
-        print("User wins!")
-        win = 1
-        return win
+
 
 
 def start(win):
     turn = rand.randint(0, 1) #two random numbers to pick who goes first
     if (turn == 0):
+        print("user one first")
         while (win == 2):
             userOne()
             win = check_win()
             userTwo()
             win = check_win()
     elif(turn == 1):
+        print("user two first")
         while (win == 2):
             userTwo()
             win = check_win()
@@ -152,36 +88,28 @@ def start(win):
 
 
 def userOne():
-    print("user one goes first")
-    user = 0
-    personChoice(spaceList)
-    spaceTL.onclick(pickTL(spaceTL, 0))
-    spaceTM.onclick(pickTM(spaceTM, 0))
-    spaceTR.onclick(pickTR(spaceTR, 0))
-    spaceML.onclick(pickML(spaceML, 0))
-    spaceMM.onclick(pickMM(spaceMM, 0))
-    spaceMR.onclick(pickMR(spaceMR, 0))
-    spaceBL.onclick(pickBL(spaceBL, 0))
-    spaceBM.onclick(pickBM(spaceBM, 0))
-    spaceBR.onclick(pickBR(spaceBR, 0))
+    spaceTL.onclick(pickTL(spaceTL, 0), 1)
+    spaceTM.onclick(pickTM(spaceTM, 0), 1)
+    spaceTR.onclick(pickTR(spaceTR, 0), 1)
+    spaceML.onclick(pickML(spaceML, 0), 1)
+    spaceMM.onclick(pickMM(spaceMM, 0), 1)
+    spaceMR.onclick(pickMR(spaceMR, 0), 1)
+    spaceBL.onclick(pickBL(spaceBL, 0), 1)
+    spaceBM.onclick(pickBM(spaceBM, 0), 1)
+    spaceBR.onclick(pickBR(spaceBR, 0), 1)
 
 
 def userTwo():
-    print("user two goes first")
-    personChoice(spaceList)
-    spaceTL.onclick(pickTL(spaceTL, 1))
-    spaceTM.onclick(pickTM(spaceTM, 1))
-    spaceTR.onclick(pickTR(spaceTR, 1))
-    spaceML.onclick(pickML(spaceML, 1))
-    spaceMM.onclick(pickMM(spaceMM, 1))
-    spaceMR.onclick(pickMR(spaceMR, 1))
-    spaceBL.onclick(pickBL(spaceBL, 1))
-    spaceBM.onclick(pickBM(spaceBM, 1))
-    spaceBR.onclick(pickBR(spaceBR, 1))
+    spaceTL.onclick(pickTL(spaceTL, 1), 1)
+    spaceTM.onclick(pickTM(spaceTM, 1), 1)
+    spaceTR.onclick(pickTR(spaceTR, 1), 1)
+    spaceML.onclick(pickML(spaceML, 1), 1)
+    spaceMM.onclick(pickMM(spaceMM, 1), 1)
+    spaceMR.onclick(pickMR(spaceMR, 1), 1)
+    spaceBL.onclick(pickBL(spaceBL, 1), 1)
+    spaceBM.onclick(pickBM(spaceBM, 1), 1)
+    spaceBR.onclick(pickBR(spaceBR, 1), 1)
 
-def personChoice(spaceList):
-    print("Choose from this list: ")
-    print(spaceList)
 
 def pickTL(space, user):
     print("user chose TL")
@@ -263,7 +191,76 @@ def pickBR(space, user):
     elif (user == 1):
         space.write("O", font = ("Arial", 20, "bold"))
         stateBR = 1
-
+#have to call this after every state change
+def check_win():
+    #Computer win conditions
+    if(stateTL == stateTM & stateTM == stateTR & stateTL == 0):
+        print("Computer wins!")
+        win = 1
+        return win
+    elif(stateML == stateMM & stateMM == stateMR & stateML == 0):
+        print("Computer wins!")
+        win = 1
+        return win
+    elif(stateBL == stateBM & stateBM == stateBR & stateBL == 0):
+        print("Computer wins!")
+        win = 1
+        return win
+    elif(stateTL == stateML & stateML == stateBL & stateTL == 0):
+        print("Computer wins!")
+        win = 1
+        return win
+    elif(stateTM == stateMM & stateMM == stateBM & stateTM == 0):
+        print("Computer wins!")
+        win = 1
+        return win
+    elif(stateTR == stateMR & stateMR == stateBR & stateTR == 0):
+        print("Computer wins!")
+        win = 1
+        return win
+    elif(stateTL == stateMM & stateMM == stateBR & stateTL == 0):
+        print("Computer wins!")
+        win = 1
+        return win
+    elif(stateTR == stateMM & stateMM == stateBL & stateTR == 0):
+        print("Computer wins!")
+        win = 1
+        return win
+    #user win conditions
+    elif(stateTL == stateTM & stateTM == stateTR & stateTL == 1):
+        print("User wins!")
+        win = 1
+        return win
+    elif(stateML == stateMM & stateMM == stateMR & stateML == 1):
+        print("User wins!")
+        win = 1
+        return win
+    elif(stateBL == stateBM & stateBM == stateBR & stateBL == 1):
+        print("User wins!")
+        win = 1
+        return win
+    elif(stateTL == stateML & stateML == stateBL & stateTL == 1):
+        print("User wins!")
+        win = 1
+        return win
+    elif(stateTM == stateMM & stateMM == stateBM & stateTM == 1):
+        print("User wins!")
+        win = 1
+        return win
+    elif(stateTR == stateMR & stateMR == stateBR & stateTR == 1):
+        print("User wins!")
+        win = 1
+        return win
+    elif(stateTL == stateMM & stateMM == stateBR & stateTL == 1):
+        print("User wins!")
+        win = 1
+        return win
+    elif(stateTR == stateMM & stateMM == stateBL & stateTR == 1):
+        print("User wins!")
+        win = 1
+        return win
+    else:
+        win = 2
 
 #---function calls-----
 draw_selection_areas(xcord, ycord)
