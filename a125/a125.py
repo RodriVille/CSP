@@ -98,6 +98,7 @@ def userOne():
     spaceBM.onclick(pickBM(spaceBM, 0), 1)
     spaceBR.onclick(pickBR(spaceBR, 0), 1)
 
+    wn.listen()
 
 def userTwo():
     spaceTL.onclick(pickTL(spaceTL, 1), 1)
@@ -265,7 +266,6 @@ def check_win():
 #---function calls-----
 draw_selection_areas(xcord, ycord)
 start(win)
-
 
 wn.listen()
 #wn.exitonclick()
