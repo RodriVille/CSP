@@ -68,8 +68,7 @@ def draw_selection_areas(xcord, ycord):
 
 
 
-
-def start(win):
+'''def start(win):
     turn = rand.randint(0, 1) #two random numbers to pick who goes first
     if (turn == 0):
         print("user one first")
@@ -84,32 +83,20 @@ def start(win):
             userTwo()
             win = check_win()
             userOne()
-            win = check_win()
+            win = check_win()'''
 
 
-def userOne():
-    spaceTL.onclick(pickTL(spaceTL, 0, stateTL), 1) #code that runs after someone clicks on a circle
-    spaceTM.onclick(pickTM(spaceTM, 0, stateTM), 1)
-    spaceTR.onclick(pickTR(spaceTR, 0, stateTR), 1)
-    spaceML.onclick(pickML(spaceML, 0, stateML), 1)
-    spaceMM.onclick(pickMM(spaceMM, 0, stateMM), 1)
-    spaceMR.onclick(pickMR(spaceMR, 0, stateMR), 1)
-    spaceBL.onclick(pickBL(spaceBL, 0, stateBL), 1)
-    spaceBM.onclick(pickBM(spaceBM, 0, stateBM), 1)
-    spaceBR.onclick(pickBR(spaceBR, 0, stateBR), 1)
 
-    wn.listen()
+spaceTL.onclick(pickTL(spaceTL, 0, stateTL), 1) #code that runs after someone clicks on a circle
+spaceTM.onclick(pickTM(spaceTM, 0, stateTM), 1)
+spaceTR.onclick(pickTR(spaceTR, 0, stateTR), 1)
+spaceML.onclick(pickML(spaceML, 0, stateML), 1)
+spaceMM.onclick(pickMM(spaceMM, 0, stateMM), 1)
+spaceMR.onclick(pickMR(spaceMR, 0, stateMR), 1)
+spaceBL.onclick(pickBL(spaceBL, 0, stateBL), 1)
+spaceBM.onclick(pickBM(spaceBM, 0, stateBM), 1)
+spaceBR.onclick(pickBR(spaceBR, 0, stateBR), 1)
 
-def userTwo():
-    spaceTL.onclick(pickTL(spaceTL, 1, stateTL), 1)
-    spaceTM.onclick(pickTM(spaceTM, 1, stateTM), 1)
-    spaceTR.onclick(pickTR(spaceTR, 1, stateTR), 1)
-    spaceML.onclick(pickML(spaceML, 1, stateML), 1)
-    spaceMM.onclick(pickMM(spaceMM, 1, stateMM), 1)
-    spaceMR.onclick(pickMR(spaceMR, 1, stateMR), 1)
-    spaceBL.onclick(pickBL(spaceBL, 1, stateBL), 1)
-    spaceBM.onclick(pickBM(spaceBM, 1, stateBM), 1)
-    spaceBR.onclick(pickBR(spaceBR, 1, stateBR), 1)
 
 
 def pickTL(space, user, stateTL):
