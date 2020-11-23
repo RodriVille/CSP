@@ -79,29 +79,6 @@ def draw_selection_areas(xcord, ycord):
             i += 1
 
 
-
-'''def start(win):
-    turn = rand.randint(0, 1) #two random numbers to pick who goes first
-    if (turn == 0):
-        print("user one first")
-        while (win == 2): #Keeps running turns while no one has one
-            userOne() #allows user one to make a choice
-            win = check_win() #checks win after turn
-            userTwo()
-            win = check_win()
-    elif(turn == 1):
-        print("user two first")
-        while (win == 2):
-            userTwo()
-            win = check_win()
-            userOne()
-            win = check_win()'''
-
-
-
-
-
-
 def pickTL(space):
     print("user chose TL")
     global user
