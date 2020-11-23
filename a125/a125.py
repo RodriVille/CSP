@@ -29,7 +29,7 @@ global stateBL
 global stateBM
 global stateBR
 
-
+winner = trtl.Turtle()
 spaceTL = trtl.Turtle()
 spaceTM = trtl.Turtle()
 spaceTR = trtl.Turtle()
@@ -40,7 +40,7 @@ spaceBL = trtl.Turtle()
 spaceBM = trtl.Turtle()
 spaceBR = trtl.Turtle()
 
-# 0 for computer and 1 for user
+# 0 for User One and 1 for user
 stateTL = 2
 stateTM = 2
 stateTR = 2
@@ -283,69 +283,102 @@ def pickBR(space):
     keyPress()
 #have to call this after every state change
 def check_win():
-    #Computer win conditions
-    if(stateTL == stateTM & stateTM == stateTR & stateTL == 0):
-        print("Computer wins!")
-    elif(stateML == stateMM & stateMM == stateMR & stateML == 0):
-        print("Computer wins!")
-    elif(stateBL == stateBM & stateBM == stateBR & stateBL == 0):
-        print("Computer wins!")
-    elif(stateTL == stateML & stateML == stateBL & stateTL == 0):
-        print("Computer wins!")
-    elif(stateTM == stateMM & stateMM == stateBM & stateTM == 0):
-        print("Computer wins!")
-    elif(stateTR == stateMR & stateMR == stateBR & stateTR == 0):
-        print("Computer wins!")
-    elif(stateTL == stateMM & stateMM == stateBR & stateTL == 0):
-        print("Computer wins!")
-    elif(stateTR == stateMM & stateMM == stateBL & stateTR == 0):
-        print("Computer wins!")
+    #User One win conditions
+    if(stateTL == stateTM and stateTM == stateTR and stateTL == 0):
+        print("User One wins!")
+        oneWins()
+        wn.exitonclick()
+    elif(stateML == stateMM and stateMM == stateMR and stateML == 0):
+        print("User One wins!")
+        oneWins()
+        wn.exitonclick()
+    elif(stateBL == stateBM and stateBM == stateBR and stateBL == 0):
+        print("User One wins!")
+        oneWins()
+        wn.exitonclick()
+    elif(stateTL == stateML and stateML == stateBL and stateTL == 0):
+        print("User One wins!")
+        oneWins()
+        wn.exitonclick()
+    elif(stateTM == stateMM and stateMM == stateBM and stateTM == 0):
+        print("User One wins!")
+        oneWins()
+        wn.exitonclick()
+    elif(stateTR == stateMR and stateMR == stateBR and stateTR == 0):
+        print("User One wins!")
+        oneWins()
+        wn.exitonclick()
+    elif(stateTL == stateMM and stateMM == stateBR and stateTL == 0):
+        print("User One wins!")
+        oneWins()
+        wn.exitonclick()
+    elif(stateTR == stateMM and stateMM == stateBL and stateTR == 0):
+        print("User One wins!")
+        oneWins()
+        wn.exitonclick()
     #user win conditions
-    elif(stateTL == stateTM & stateTM == stateTR & stateTL == 1):
-        print("User wins!")
-    elif(stateML == stateMM & stateMM == stateMR & stateML == 1):
-        print("User wins!")
-    elif(stateBL == stateBM & stateBM == stateBR & stateBL == 1):
-        print("User wins!")
-    elif(stateTL == stateML & stateML == stateBL & stateTL == 1):
-        print("User wins!")
-    elif(stateTM == stateMM & stateMM == stateBM & stateTM == 1):
-        print("User wins!")
-    elif(stateTR == stateMR & stateMR == stateBR & stateTR == 1):
-        print("User wins!")
-    elif(stateTL == stateMM & stateMM == stateBR & stateTL == 1):
-        print("User wins!")
-    elif(stateTR == stateMM & stateMM == stateBL & stateTR == 1):
-        print("User wins!")
+    elif(stateTL == stateTM and stateTM == stateTR and stateTL == 1):
+        print("User two wins!")
+        twoWins()
+        wn.exitonclick()
+    elif(stateML == stateMM and stateMM == stateMR and stateML == 1):
+        print("User two wins!")
+        twoWins()
+        wn.exitonclick()
+    elif(stateBL == stateBM and stateBM == stateBR and stateBL == 1):
+        print("User two wins!")
+        twoWins()
+        wn.exitonclick()
+    elif(stateTL == stateML and stateML == stateBL and stateTL == 1):
+        print("User two wins!")
+        twoWins()
+        wn.exitonclick()
+    elif(stateTM == stateMM and stateMM == stateBM and stateTM == 1):
+        print("User two wins!")
+        twoWins()
+        wn.exitonclick()
+    elif(stateTR == stateMR and stateMR == stateBR and stateTR == 1):
+        print("User two wins!")
+        twoWins()
+        wn.exitonclick()
+    elif(stateTL == stateMM and stateMM == stateBR and stateTL == 1):
+        print("User two wins!")
+        twoWins()
+        wn.exitonclick()
+    elif(stateTR == stateMM and stateMM == stateBL and stateTR == 1):
+        print("User two wins!")
+        twoWins()
+        wn.exitonclick()
     else:
         print("No one has won")
 
-def TL():
-    global stateTL
+def oneWins():
+    wn.clear()
+    winner.write("User One Wins!", font = ("Arial", 20, "bold"))
+    winner.ht()
+
+def twoWins():
+    wn.clear()
+    winner.write("User One Wins!", font = ("Arial", 20, "bold"))
+    winner.ht()
+
+def TL(stateTL, num):
     pickTL(spaceTL)
-def TM():
-    global stateTM
+def TM(stateTM, num):
     pickTM(spaceTM)
-def TR():
-    global stateTR
+def TR(stateTR, num):
     pickTR(spaceTR)
-def ML():
-    global stateML
+def ML(stateML, num):
     pickML(spaceML)
-def MM():
-    global stateMM
+def MM(stateMM, num):
     pickMM(spaceMM)
-def MR():
-    global stateMR
+def MR(stateMR, num):
     pickMR(spaceMR)
-def BL():
-    global stateBL
+def BL(stateBL, num):
     pickBL(spaceBL)
-def BM():
-    global stateBM
+def BM(stateBM, num):
     pickBM(spaceBM)
-def BR():
-    global stateBR
+def BR(stateBR, num):
     pickBR(spaceBR)
 
 #---listens for space clicks---
