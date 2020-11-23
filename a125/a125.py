@@ -4,7 +4,7 @@ import random as rand
 #-----setup-----
 wn = trtl.Screen()
 wn.setup(width=.5, height=.5)
-#wn.bgpic("board.png")# Make the background of the scene
+wn.bgpic("board.png")# Make the background of the scene
 
 xcord = -120
 ycord = 75
@@ -30,6 +30,7 @@ global stateBM
 global stateBR
 
 winner = trtl.Turtle()
+winner.ht()
 spaceTL = trtl.Turtle()
 spaceTM = trtl.Turtle()
 spaceTR = trtl.Turtle()
@@ -70,6 +71,7 @@ def draw_selection_areas(xcord, ycord):
         spaces.goto(xcord, ycord)
         spaces.pendown()
         spaces.circle(40)
+        spaces.setheading(90)
         xcord += 120
         if (i == 2):
             ycord -= 115
@@ -88,11 +90,13 @@ def pickTL(space):
         stateTL = 0 #sets the state of the tile for check win
         user = 1
         check_win()
+        check_cats()
     elif (user == 1 and stateTL == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateTL = 1
         user = 0
         check_win()
+        check_cats()
     elif (user == 0 and stateTL != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateTL != 2):
@@ -108,11 +112,13 @@ def pickTM(space):
         stateTM = 0
         user = 1
         check_win()
+        check_cats()
     elif (user == 1 and stateTM == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateTM = 1
         user = 0
         check_win()
+        check_cats()
     elif (user == 0 and stateTM != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateTM != 2):
@@ -128,11 +134,13 @@ def pickTR(space):
         stateTR = 0
         user = 1
         check_win()
+        check_cats()
     elif (user == 1 and stateTR == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateTR = 1
         user = 0
         check_win()
+        check_cats()
     elif (user == 0 and stateTR != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateTR != 2):
@@ -148,11 +156,13 @@ def pickML(space):
         stateML = 0
         user = 1
         check_win()
+        check_cats()
     elif (user == 1 and stateML == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateML = 1
         user = 0
         check_win()
+        check_cats()
     elif (user == 0 and stateML != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateML != 2):
@@ -168,11 +178,13 @@ def pickMM(space):
         stateMM = 0
         user = 1
         check_win()
+        check_cats()
     elif (user == 1 and stateMM == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateMM = 1
         user = 0
         check_win()
+        check_cats()
     elif (user == 0 and stateMM != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateMM != 2):
@@ -188,11 +200,13 @@ def pickMR(space):
         stateMR = 0
         user = 1
         check_win()
+        check_cats()
     elif (user == 1 and stateMR == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateMR = 1
         user = 0
         check_win()
+        check_cats()
     elif (user == 0 and stateMR != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateMR != 2):
@@ -208,11 +222,13 @@ def pickBL(space):
         stateBL = 0
         user = 1
         check_win()
+        check_cats()
     elif (user == 1 and stateBL == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateBL = 1
         user = 0
         check_win()
+        check_cats()
     elif (user == 0 and stateBL != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateBL != 2):
@@ -228,11 +244,13 @@ def pickBM(space):
         stateBM = 0
         user = 1
         check_win()
+        check_cats()
     elif (user == 1 and stateBM == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateBM = 1
         user = 0
         check_win()
+        check_cats()
     elif (user == 0 and stateBM != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateBM != 2):
@@ -248,16 +266,20 @@ def pickBR(space):
         stateBR = 0
         user = 1
         check_win()
+        check_cats()
     elif (user == 1 and stateBR == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateBR = 1
         user = 0
         check_win()
+        check_cats()
     elif (user == 0 and stateBR != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateBR != 2):
         user = 1
     keyPress()
+
+
 #have to call this after every state change
 def check_win():
     #User One win conditions
@@ -329,6 +351,13 @@ def check_win():
     else:
         print("No one has won")
 
+def check_cats():
+    if((stateTL != 2) and (stateTM != 2) and (stateTR != 2) and (stateML != 2) and (stateMM != 2) and (stateMR != 2) and (stateBL != 2) and (stateBM != 2) and (stateBR != 2)):
+        print("CATS GAME, REPLAY")
+        wn.clear()
+        winner.goto(-120,0)
+        winner.write("NO ONE WINS, CAT GAME, PLAY AGAIN!", font = ("Arial", 20, "bold"))
+
 def oneWins():
     wn.clear()
     winner.write("User One Wins!", font = ("Arial", 20, "bold"))
@@ -377,5 +406,4 @@ keyPress()
 
 
 wn.listen()
-#wn.exitonclick()
 wn.mainloop()
