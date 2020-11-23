@@ -56,7 +56,6 @@ def draw_selection_areas(xcord, ycord):
     i=0
     for spaces in spaceList:
         spaces.speed(0)
-        spaces.ht()
         spaces.penup()
         spaces.goto(xcord, ycord)
         spaces.pendown()
@@ -93,9 +92,10 @@ def draw_selection_areas(xcord, ycord):
 
 
 
-def pickTL(space, stateTL):
+def pickTL(space):
     print("user chose TL")
     global user
+    global stateTL
     if (user == 0 and stateTL == 2): #What user is the one picking the circle
         space.write("X", font = ("Arial", 20, "bold"))
         stateTL = 0 #sets the state of the tile for check win
@@ -112,8 +112,9 @@ def pickTL(space, stateTL):
         user = 1
     keyPress()
 
-def pickTM(space, stateTM):
+def pickTM(space):
     global user
+    global stateTM
     print("user chose TM")
     if (user == 0 and stateTM == 2):
         space.write("X", font = ("Arial", 20, "bold"))
@@ -131,8 +132,9 @@ def pickTM(space, stateTM):
         user = 1
     keyPress()
 
-def pickTR(space, stateTR):
+def pickTR(space):
     global user
+    global stateTR
     print("user chose TR")
     if (user == 0 and stateTR == 2):
         space.write("X", font = ("Arial", 20, "bold"))
@@ -150,9 +152,10 @@ def pickTR(space, stateTR):
         user = 1
     keyPress()
 
-def pickML(space, stateML):
+def pickML(space):
     print("user chose ML")
     global user
+    global stateML
     if (user == 0 and stateML == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateML = 0
@@ -169,9 +172,10 @@ def pickML(space, stateML):
         user = 1
     keyPress()
 
-def pickMM(space, stateMM):
+def pickMM(space):
     print("user chose MM")
     global user
+    global stateMM
     if (user == 0 and stateMM == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateMM = 0
@@ -188,9 +192,10 @@ def pickMM(space, stateMM):
         user = 1
     keyPress()
 
-def pickMR(space, stateMR):
+def pickMR(space):
     print("user chose MR")
     global user
+    global stateMR
     if (user == 0 and stateMR == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateMR = 0
@@ -207,9 +212,10 @@ def pickMR(space, stateMR):
         user = 1
     keyPress()
 
-def pickBL(space, stateBL):
+def pickBL(space):
     print("user chose BL")
     global user
+    global stateBL
     if (user == 0 and stateBL == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateBL = 0
@@ -226,9 +232,10 @@ def pickBL(space, stateBL):
         user = 1
     keyPress()
 
-def pickBM(space, stateBM):
+def pickBM(space):
     print("user chose BM")
     global user
+    global stateBM
     if (user == 0 and stateBM == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateBM = 0
@@ -245,9 +252,10 @@ def pickBM(space, stateBM):
         user = 1
     keyPress()
 
-def pickBR(space, stateBR):
+def pickBR(space):
     print("user chose BR")
     global user
+    global stateBR
     if (user == 0 and stateBR == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateBR = 0
@@ -303,23 +311,23 @@ def check_win():
         print("No one has won")
 
 def TL():
-    pickTL(spaceTL, stateTL)
+    pickTL(spaceTL)
 def TM():
-    pickTM(spaceTM, stateTM)
+    pickTM(spaceTM)
 def TR():
-    pickTR(spaceTR, stateTR)
+    pickTR(spaceTR)
 def ML():
-    pickML(spaceML, stateML)
+    pickML(spaceML)
 def MM():
-    pickMM(spaceMM, stateMM)
+    pickMM(spaceMM)
 def MR():
-    pickMR(spaceMR, stateMR)
+    pickMR(spaceMR)
 def BL():
-    pickBL(spaceBL, stateBL)
+    pickBL(spaceBL)
 def BM():
-    pickBM(spaceBM, stateBM)
+    pickBM(spaceBM)
 def BR():
-    pickBR(spaceBR, stateBR)
+    pickBR(spaceBR)
 
 #---listens for space clicks---
 def keyPress():
@@ -332,7 +340,6 @@ def keyPress():
     spaceBL.onclick(BL)
     spaceBM.onclick(BM)
     spaceBR.onclick(BR)
-
 
 
 #---function calls-----
