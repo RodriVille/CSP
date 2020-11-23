@@ -73,9 +73,9 @@ def start(win):
     turn = rand.randint(0, 1) #two random numbers to pick who goes first
     if (turn == 0):
         print("user one first")
-        while (win == 2):
-            userOne()
-            win = check_win()
+        while (win == 2): #Keeps running turns while no one has one
+            userOne() #allows user one to make a choice
+            win = check_win() #checks win after turn
             userTwo()
             win = check_win()
     elif(turn == 1):
@@ -88,7 +88,7 @@ def start(win):
 
 
 def userOne():
-    spaceTL.onclick(pickTL(spaceTL, 0), 1)
+    spaceTL.onclick(pickTL(spaceTL, 0), 1) #code that runs after someone clicks on a circle
     spaceTM.onclick(pickTM(spaceTM, 0), 1)
     spaceTR.onclick(pickTR(spaceTR, 0), 1)
     spaceML.onclick(pickML(spaceML, 0), 1)
@@ -114,9 +114,9 @@ def userTwo():
 
 def pickTL(space, user):
     print("user chose TL")
-    if (user == 0):
+    if (user == 0): #What user is the one picking the circle
         space.write("X", font = ("Arial", 20, "bold"))
-        stateTL = 0
+        stateTL = 0 #sets the state of the tile for check win
     elif (user == 1):
         space.write("O", font = ("Arial", 20, "bold"))
         stateTL = 1
