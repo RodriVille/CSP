@@ -359,7 +359,7 @@ def oneWins():
 
 def twoWins():
     wn.clear()
-    winner.write("User One Wins!", font = ("Arial", 20, "bold"))
+    winner.write("User Two Wins!", font = ("Arial", 20, "bold"))
     winner.ht()
 
 def TL(stateTL, num):
