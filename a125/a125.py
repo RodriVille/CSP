@@ -110,6 +110,7 @@ def pickTL(space, stateTL):
         user = 0
     elif (user == 1 and stateTL != 2):
         user = 1
+    keyPress()
 
 def pickTM(space, stateTM):
     global user
@@ -128,6 +129,7 @@ def pickTM(space, stateTM):
         user = 0
     elif (user == 1 and stateTM != 2):
         user = 1
+    keyPress()
 
 def pickTR(space, stateTR):
     global user
@@ -146,6 +148,7 @@ def pickTR(space, stateTR):
         user = 0
     elif (user == 1 and stateTR != 2):
         user = 1
+    keyPress()
 
 def pickML(space, stateML):
     print("user chose ML")
@@ -158,12 +161,13 @@ def pickML(space, stateML):
     elif (user == 1 and stateML == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateML = 1
-        user = 1
+        user = 0
         check_win()
     elif (user == 0 and stateML != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateML != 2):
         user = 1
+    keyPress()
 
 def pickMM(space, stateMM):
     print("user chose MM")
@@ -182,6 +186,7 @@ def pickMM(space, stateMM):
         user = 0
     elif (user == 1 and stateMM != 2):
         user = 1
+    keyPress()
 
 def pickMR(space, stateMR):
     print("user chose MR")
@@ -200,6 +205,7 @@ def pickMR(space, stateMR):
         user = 0
     elif (user == 1 and stateMR != 2):
         user = 1
+    keyPress()
 
 def pickBL(space, stateBL):
     print("user chose BL")
@@ -218,6 +224,7 @@ def pickBL(space, stateBL):
         user = 0
     elif (user == 1 and stateBL != 2):
         user = 1
+    keyPress()
 
 def pickBM(space, stateBM):
     print("user chose BM")
@@ -225,17 +232,18 @@ def pickBM(space, stateBM):
     if (user == 0 and stateBM == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateBM = 0
-        user = 0
+        user = 1
         check_win()
     elif (user == 1 and stateBM == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateBM = 1
-        user = 1
+        user = 0
         check_win()
     elif (user == 0 and stateBM != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateBM != 2):
         user = 1
+    keyPress()
 
 def pickBR(space, stateBR):
     print("user chose BR")
@@ -248,12 +256,13 @@ def pickBR(space, stateBR):
     elif (user == 1 and stateBR == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateBR = 1
-        user = 1
+        user = 0
         check_win()
     elif (user == 0 and stateBR != 2):#this is if the spot has already been taken
         user = 0
     elif (user == 1 and stateBR != 2):
         user = 1
+    keyPress()
 #have to call this after every state change
 def check_win():
     #Computer win conditions
@@ -293,23 +302,42 @@ def check_win():
     else:
         print("No one has won")
 
+def TL():
+    pickTL(spaceTL, stateTL)
+def TM():
+    pickTM(spaceTM, stateTM)
+def TR():
+    pickTR(spaceTR, stateTR)
+def ML():
+    pickML(spaceML, stateML)
+def MM():
+    pickMM(spaceMM, stateMM)
+def MR():
+    pickMR(spaceMR, stateMR)
+def BL():
+    pickBL(spaceBL, stateBL)
+def BM():
+    pickBM(spaceBM, stateBM)
+def BR():
+    pickBR(spaceBR, stateBR)
+
+#---listens for space clicks---
+def keyPress():
+    spaceTL.onclick(TL) #code that runs after someone clicks on a circle
+    spaceTM.onclick(TM)
+    spaceTR.onclick(TR)
+    spaceML.onclick(ML)
+    spaceMM.onclick(MM)
+    spaceMR.onclick(MR)
+    spaceBL.onclick(BL)
+    spaceBM.onclick(BM)
+    spaceBR.onclick(BR)
+
 
 
 #---function calls-----
 draw_selection_areas(xcord, ycord)
-
-
-#---listens for space clicks---
-spaceTL.onclick(pickTL(spaceTL, stateTL), 1) #code that runs after someone clicks on a circle
-spaceTM.onclick(pickTM(spaceTM, stateTM), 1)
-spaceTR.onclick(pickTR(spaceTR, stateTR), 1)
-spaceML.onclick(pickML(spaceML, stateML), 1)
-spaceMM.onclick(pickMM(spaceMM, stateMM), 1)
-spaceMR.onclick(pickMR(spaceMR, stateMR), 1)
-spaceBL.onclick(pickBL(spaceBL, stateBL), 1)
-spaceBM.onclick(pickBM(spaceBM, stateBM), 1)
-spaceBR.onclick(pickBR(spaceBR, stateBR), 1)
-
+keyPress()
 
 
 wn.listen()
