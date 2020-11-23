@@ -44,6 +44,9 @@ stateBR = 2
 global win
 win = 2
 
+global user
+user = 0
+
 #---Set each space postion---
 spaceList = [spaceTL, spaceTM, spaceTR, spaceML, spaceMM, spaceMR, spaceBL, spaceBM, spaceBR]
 userList = []
@@ -87,208 +90,227 @@ def draw_selection_areas(xcord, ycord):
 
 
 
-spaceTL.onclick(pickTL(spaceTL, 0, stateTL), 1) #code that runs after someone clicks on a circle
-spaceTM.onclick(pickTM(spaceTM, 0, stateTM), 1)
-spaceTR.onclick(pickTR(spaceTR, 0, stateTR), 1)
-spaceML.onclick(pickML(spaceML, 0, stateML), 1)
-spaceMM.onclick(pickMM(spaceMM, 0, stateMM), 1)
-spaceMR.onclick(pickMR(spaceMR, 0, stateMR), 1)
-spaceBL.onclick(pickBL(spaceBL, 0, stateBL), 1)
-spaceBM.onclick(pickBM(spaceBM, 0, stateBM), 1)
-spaceBR.onclick(pickBR(spaceBR, 0, stateBR), 1)
 
 
 
-def pickTL(space, user, stateTL):
+def pickTL(space, stateTL):
     print("user chose TL")
+    global user
     if (user == 0 and stateTL == 2): #What user is the one picking the circle
         space.write("X", font = ("Arial", 20, "bold"))
         stateTL = 0 #sets the state of the tile for check win
+        user = 1
+        check_win()
     elif (user == 1 and stateTL == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateTL = 1
+        user = 0
+        check_win()
     elif (user == 0 and stateTL != 2):#this is if the spot has already been taken
-        userOne()
+        user = 0
     elif (user == 1 and stateTL != 2):
-        userTwo()
+        user = 1
 
-def pickTM(space, user, stateTM):
+def pickTM(space, stateTM):
+    global user
     print("user chose TM")
     if (user == 0 and stateTM == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateTM = 0
+        user = 1
+        check_win()
     elif (user == 1 and stateTM == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateTM = 1
+        user = 0
+        check_win()
     elif (user == 0 and stateTM != 2):#this is if the spot has already been taken
-        userOne()
+        user = 0
     elif (user == 1 and stateTM != 2):
-        userTwo()
+        user = 1
 
-def pickTR(space, user, stateTR):
+def pickTR(space, stateTR):
+    global user
     print("user chose TR")
     if (user == 0 and stateTR == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateTR = 0
+        user = 1
+        check_win()
     elif (user == 1 and stateTR == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateTR = 1
+        user = 0
+        check_win()
     elif (user == 0 and stateTR != 2):#this is if the spot has already been taken
-        userOne()
+        user = 0
     elif (user == 1 and stateTR != 2):
-        userTwo()
+        user = 1
 
-def pickML(space, user, stateML):
+def pickML(space, stateML):
     print("user chose ML")
+    global user
     if (user == 0 and stateML == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateML = 0
+        user = 1
+        check_win()
     elif (user == 1 and stateML == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateML = 1
+        user = 1
+        check_win()
     elif (user == 0 and stateML != 2):#this is if the spot has already been taken
-        userOne()
+        user = 0
     elif (user == 1 and stateML != 2):
-        userTwo()
+        user = 1
 
-def pickMM(space, user, stateMM):
+def pickMM(space, stateMM):
     print("user chose MM")
+    global user
     if (user == 0 and stateMM == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateMM = 0
+        user = 1
+        check_win()
     elif (user == 1 and stateMM == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateMM = 1
+        user = 0
+        check_win()
     elif (user == 0 and stateMM != 2):#this is if the spot has already been taken
-        userOne()
+        user = 0
     elif (user == 1 and stateMM != 2):
-        userTwo()
+        user = 1
 
-def pickMR(space, user, stateMR):
+def pickMR(space, stateMR):
     print("user chose MR")
+    global user
     if (user == 0 and stateMR == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateMR = 0
+        user = 1
+        check_win()
     elif (user == 1 and stateMR == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateMR = 1
+        user = 0
+        check_win()
     elif (user == 0 and stateMR != 2):#this is if the spot has already been taken
-        userOne()
+        user = 0
     elif (user == 1 and stateMR != 2):
-        userTwo()
+        user = 1
 
-def pickBL(space, user, stateBL):
+def pickBL(space, stateBL):
     print("user chose BL")
+    global user
     if (user == 0 and stateBL == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateBL = 0
+        user = 1
+        check_win()
     elif (user == 1 and stateBL == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateBL = 1
+        user = 0
+        check_win()
     elif (user == 0 and stateBL != 2):#this is if the spot has already been taken
-        userOne()
+        user = 0
     elif (user == 1 and stateBL != 2):
-        userTwo()
+        user = 1
 
-def pickBM(space, user, stateBM):
+def pickBM(space, stateBM):
     print("user chose BM")
+    global user
     if (user == 0 and stateBM == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateBM = 0
+        user = 0
+        check_win()
     elif (user == 1 and stateBM == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateBM = 1
+        user = 1
+        check_win()
     elif (user == 0 and stateBM != 2):#this is if the spot has already been taken
-        userOne()
+        user = 0
     elif (user == 1 and stateBM != 2):
-        userTwo()
+        user = 1
 
-def pickBR(space, user, stateBR):
+def pickBR(space, stateBR):
     print("user chose BR")
+    global user
     if (user == 0 and stateBR == 2):
         space.write("X", font = ("Arial", 20, "bold"))
         stateBR = 0
+        user = 1
+        check_win()
     elif (user == 1 and stateBR == 2):
         space.write("O", font = ("Arial", 20, "bold"))
         stateBR = 1
+        user = 1
+        check_win()
     elif (user == 0 and stateBR != 2):#this is if the spot has already been taken
-        userOne()
+        user = 0
     elif (user == 1 and stateBR != 2):
-        userTwo()
+        user = 1
 #have to call this after every state change
 def check_win():
     #Computer win conditions
     if(stateTL == stateTM & stateTM == stateTR & stateTL == 0):
         print("Computer wins!")
-        win = 1
-        return win
     elif(stateML == stateMM & stateMM == stateMR & stateML == 0):
         print("Computer wins!")
-        win = 1
-        return win
     elif(stateBL == stateBM & stateBM == stateBR & stateBL == 0):
         print("Computer wins!")
-        win = 1
-        return win
     elif(stateTL == stateML & stateML == stateBL & stateTL == 0):
         print("Computer wins!")
-        win = 1
-        return win
     elif(stateTM == stateMM & stateMM == stateBM & stateTM == 0):
         print("Computer wins!")
-        win = 1
-        return win
     elif(stateTR == stateMR & stateMR == stateBR & stateTR == 0):
         print("Computer wins!")
-        win = 1
-        return win
     elif(stateTL == stateMM & stateMM == stateBR & stateTL == 0):
         print("Computer wins!")
-        win = 1
-        return win
     elif(stateTR == stateMM & stateMM == stateBL & stateTR == 0):
         print("Computer wins!")
-        win = 1
-        return win
     #user win conditions
     elif(stateTL == stateTM & stateTM == stateTR & stateTL == 1):
         print("User wins!")
-        win = 1
-        return win
     elif(stateML == stateMM & stateMM == stateMR & stateML == 1):
         print("User wins!")
-        win = 1
-        return win
     elif(stateBL == stateBM & stateBM == stateBR & stateBL == 1):
         print("User wins!")
-        win = 1
-        return win
     elif(stateTL == stateML & stateML == stateBL & stateTL == 1):
         print("User wins!")
-        win = 1
-        return win
     elif(stateTM == stateMM & stateMM == stateBM & stateTM == 1):
         print("User wins!")
-        win = 1
-        return win
     elif(stateTR == stateMR & stateMR == stateBR & stateTR == 1):
         print("User wins!")
-        win = 1
-        return win
     elif(stateTL == stateMM & stateMM == stateBR & stateTL == 1):
         print("User wins!")
-        win = 1
-        return win
     elif(stateTR == stateMM & stateMM == stateBL & stateTR == 1):
         print("User wins!")
-        win = 1
-        return win
     else:
-        win = 2
+        print("No one has won")
+
+
 
 #---function calls-----
 draw_selection_areas(xcord, ycord)
-start(win)
+
+
+#---listens for space clicks---
+spaceTL.onclick(pickTL(spaceTL, stateTL), 1) #code that runs after someone clicks on a circle
+spaceTM.onclick(pickTM(spaceTM, stateTM), 1)
+spaceTR.onclick(pickTR(spaceTR, stateTR), 1)
+spaceML.onclick(pickML(spaceML, stateML), 1)
+spaceMM.onclick(pickMM(spaceMM, stateMM), 1)
+spaceMR.onclick(pickMR(spaceMR, stateMR), 1)
+spaceBL.onclick(pickBL(spaceBL, stateBL), 1)
+spaceBM.onclick(pickBM(spaceBM, stateBM), 1)
+spaceBR.onclick(pickBR(spaceBR, stateBR), 1)
+
+
 
 wn.listen()
 #wn.exitonclick()
