@@ -19,6 +19,16 @@ global stateBL
 global stateBM
 global stateBR
 
+global stateTL
+global stateTM
+global stateTR
+global stateML
+global stateMM
+global stateMR
+global stateBL
+global stateBM
+global stateBR
+
 
 spaceTL = trtl.Turtle()
 spaceTM = trtl.Turtle()
@@ -311,22 +321,31 @@ def check_win():
         print("No one has won")
 
 def TL():
+    global stateTL
     pickTL(spaceTL)
 def TM():
+    global stateTM
     pickTM(spaceTM)
 def TR():
+    global stateTR
     pickTR(spaceTR)
 def ML():
+    global stateML
     pickML(spaceML)
 def MM():
+    global stateMM
     pickMM(spaceMM)
 def MR():
+    global stateMR
     pickMR(spaceMR)
 def BL():
+    global stateBL
     pickBL(spaceBL)
 def BM():
+    global stateBM
     pickBM(spaceBM)
 def BR():
+    global stateBR
     pickBR(spaceBR)
 
 #---listens for space clicks---
