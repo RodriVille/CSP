@@ -1,0 +1,4 @@
+add import os
+and then enter a couple of times
+dir = os.path.dirname(os.path.abspath(__file__))
+variable name for a file = os.path.join(dir, "fileName")
