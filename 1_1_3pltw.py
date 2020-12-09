@@ -4,6 +4,14 @@ painter = trtl.Turtle()
 painter.speed(1000)
 i = 0
 
+<<<<<<< HEAD
+i = 0
+while (i < 19):
+    painter.forward(20)
+    painter.right(20)
+    i = i + 1
+
+=======
 #Stem
 painter.right(90)
 painter.penup()
@@ -65,6 +73,7 @@ while (g < 7):
     else:
         painter.fillcolor("blue")
         painter.end_fill()
+>>>>>>> b9b7eb46840677cdf1081621661400c3a50d2683
 
 painter.penup()
 painter.goto(0, -250)

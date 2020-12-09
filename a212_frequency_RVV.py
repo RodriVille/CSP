@@ -1,5 +1,5 @@
 #   a212_frequency.py
-#   Counts letters in a given string
+#   Counts letters in a given string ok so what is the point of this
 
 def char_frequency(str1):
     dict = {}
