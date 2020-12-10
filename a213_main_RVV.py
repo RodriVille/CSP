@@ -3,12 +3,13 @@ import time
 import a213_pwalgorithms_RVV as pwa
 
 password = input("Enter password:")
+num = input("last two digits on ID: ")
 
 print("Analyzing a one-word password ...")
 time_start = time.time()
 
 # attempt to find password
-found, num_guesses = pwa.one_word(password)
+found, num_guesses = pwa.two_word(password, num)
 time_end = time.time()
 
 # report results
