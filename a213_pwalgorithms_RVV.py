@@ -6,7 +6,7 @@ completePhrase = ""
 
 def get_dictionary():
   words = []
-  dictionary_file = open("dictionary.txt")
+  dictionary_file = open("3letterwords.txt")
   for line in dictionary_file:
     # store word, ommitting trailing new-line
     words.append(line[:-1])
