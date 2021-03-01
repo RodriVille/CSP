@@ -3,7 +3,7 @@
 #   If using a macOS device, change im to open "macOutput.gif"
 from PIL import Image 
 
-im = Image.open("output.gif")
+im = Image.open("dumber.gif")
 rgb_im = im.convert('RGB')
 
 MAX_CHARACTERS = 20
@@ -24,7 +24,7 @@ pos=0
 for i in range(UPPER_PIXEL_ROW,LOW_PIXEL_ROW,DISTANCE_BETWEEN_BLOCKS):
   for j in range(LEFT_PIXEL_COL,RIGHT_PIXEL_COL,DISTANCE_BETWEEN_BLOCKS):
     r,g,b = rgb_im.getpixel((j,i))
-    if g < 254: #the white pixels have green values of 254, blue have less
+    if g < 254: #the white pixels have green values of 254, blue 
       my_array[pos]=1
     pos = pos + 1
 print(my_array)
